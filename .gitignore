@@ -1,0 +1,7 @@
+# Capturas usadas apenas para revisão visual local
+preview-*.png
+
+# Arquivos locais de ferramentas
+.wrangler/
+.DS_Store
+Thumbs.db
