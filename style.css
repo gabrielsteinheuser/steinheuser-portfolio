@@ -24,6 +24,8 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -828,11 +830,39 @@ button {
 .cursor.is-active { opacity: 1; transform: translate(-50%,-50%) scale(1); }
 
 @media (max-width: 820px) {
-  .site-header { grid-template-columns: 1fr auto; }
-  .site-header nav { display: none; }
+  .site-header {
+    grid-template-columns: 1fr auto;
+    background: rgba(16,16,16,.96);
+    backdrop-filter: none;
+  }
+  .site-header nav {
+    position: fixed;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    left: 50%;
+    z-index: 95;
+    display: flex;
+    gap: .25rem;
+    width: max-content;
+    padding: .45rem;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 4rem;
+    background: rgba(16,16,16,.88);
+    box-shadow: 0 18px 50px rgba(0,0,0,.28);
+    backdrop-filter: blur(16px);
+    transform: translateX(-50%);
+  }
+  .site-header nav a {
+    padding: .72rem .9rem;
+    border-radius: 3rem;
+    color: var(--paper);
+    font-size: .54rem;
+  }
+  .site-header nav a:hover { background: rgba(0,200,240,.14); }
+  .site-header nav a::after { display: none; }
   .availability { font-size: .54rem; }
   .hero { padding-top: 6.5rem; }
-  .hero-kicker span:last-child { display: none; }
+  .hero-kicker { gap: 1rem; font-size: .56rem; }
+  .hero-kicker span:last-child { display: block; flex: 0 0 auto; }
   .hero-title { font-size: clamp(3.15rem,15vw,6.7rem); line-height: .86; }
   .hero-seal { right: 0; bottom: -4.5rem; }
   .hero-bottom { flex-direction: column; gap: 2rem; margin-top: 6rem; }
@@ -840,7 +870,7 @@ button {
   .hero-stage { min-height: 430px; margin-top: 3.5rem; }
   .stage-card-back { left: -5%; width: 58%; height: 42%; }
   .stage-card-main { top: 15%; left: 17%; width: 78%; height: 68%; }
-  .stage-note { display: none; }
+  .stage-note { display: block; right: 1rem; bottom: 1rem; }
   .section-heading { grid-template-columns: 1fr; gap: 2rem; }
   .section-heading > p { max-width: 32rem; }
   .project-visual { height: 72vw; min-height: 380px; }
@@ -859,6 +889,7 @@ button {
   .portrait-placeholder { min-height: 480px; }
   .dialog-grid { grid-template-columns: 1fr; }
   .footer-meta { grid-template-columns: 1fr; }
+  .site-footer { padding-bottom: 6.5rem; }
 }
 
 @media (max-width: 520px) {
@@ -875,11 +906,24 @@ button {
     letter-spacing: .05em;
     text-transform: uppercase;
   }
-  .hero-title { font-size: clamp(2.65rem,11.6vw,3.6rem); }
-  .hero-title .line:nth-child(2) { white-space: nowrap; }
+  .hero-title { font-size: clamp(2.5rem,10.6vw,3.35rem); line-height: .98; }
+  .hero-title .line { padding-bottom: .08em; }
+  .hero-title .line > span {
+    white-space: nowrap;
+    animation: none;
+    transform: none;
+  }
   .hero-stage { min-height: 390px; }
   .stage-card-main { left: 8%; width: 88%; }
-  .stage-card-back { display: none; }
+  .stage-card-back {
+    display: block;
+    top: 8%;
+    left: -5%;
+    width: 52%;
+    height: 34%;
+    padding: 1rem;
+  }
+  .stage-card-back strong { bottom: 1rem; left: 1rem; font-size: 1.25rem; }
   .mock-content { padding-top: 15%; }
   .project-meta { grid-template-columns: 2.2rem 1fr auto; }
   .round-button { width: 2.8rem; height: 2.8rem; }

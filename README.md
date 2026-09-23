@@ -1,6 +1,6 @@
 # Portfólio para venda de sites
 
-Base visual e funcional do portfólio Steinheuser Studh, voltado à captação de clientes para desenvolvimento web.
+Base visual e funcional do portfólio Steinheuser Web, voltado à captação de clientes para desenvolvimento web.
 
 A identidade usa a paleta extraída de `foto_perfil.png`: preto grafite, branco, ciano e azul elétrico.
 
