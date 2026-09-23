@@ -20,6 +20,27 @@
   </head>
 
   <body>
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-arrow-down-right" viewBox="0 0 24 24">
+        <path d="M7 7l10 10M17 7v10H7" />
+      </symbol>
+      <symbol id="icon-arrow-up-right" viewBox="0 0 24 24">
+        <path d="M7 17 17 7M7 7h10v10" />
+      </symbol>
+      <symbol id="icon-arrow-up" viewBox="0 0 24 24">
+        <path d="M12 19V5M6 11l6-6 6 6" />
+      </symbol>
+      <symbol id="icon-target" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="7" />
+        <circle cx="12" cy="12" r="2.5" />
+      </symbol>
+      <symbol id="icon-spark" viewBox="0 0 24 24">
+        <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z" />
+      </symbol>
+      <symbol id="icon-code" viewBox="0 0 24 24">
+        <path d="m8.5 7-5 5 5 5M15.5 7l5 5-5 5M14 4l-4 16" />
+      </symbol>
+    </svg>
     <div class="noise" aria-hidden="true"></div>
     <div class="cursor" aria-hidden="true"><span>VER</span></div>
     <div class="page-progress" aria-hidden="true"></div>
@@ -68,7 +89,7 @@
                 <textPath href="#seal-path">DESIGN • CÓDIGO • ESTRATÉGIA • </textPath>
               </text>
             </svg>
-            <span>↘</span>
+            <span><svg class="ui-icon"><use href="#icon-arrow-down-right"></use></svg></span>
           </div>
         </div>
 
@@ -80,7 +101,7 @@
 
           <a class="primary-cta magnetic" href="#projetos">
             <span>Conheça meu trabalho</span>
-            <span aria-hidden="true">↘</span>
+            <span aria-hidden="true"><svg class="ui-icon"><use href="#icon-arrow-down-right"></use></svg></span>
           </a>
         </div>
 
@@ -95,7 +116,7 @@
             <div class="mock-content">
               <small>Produtos digitais para pessoas reais.</small>
               <strong>Ideias que<br />ganham presença.</strong>
-              <div class="mock-button">Explorar <span>↗</span></div>
+              <div class="mock-button">Explorar <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg></div>
             </div>
             <div class="mock-orb"></div>
           </div>
@@ -122,7 +143,7 @@
               <h3>D Confeito</h3>
               <p>Site institucional · Confeitaria artesanal</p>
             </div>
-            <button class="round-button" aria-label="Abrir detalhes do projeto D Confeito">↗</button>
+            <button class="round-button" aria-label="Abrir detalhes do projeto D Confeito"><svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg></button>
           </div>
 
           <div class="project-visual project-visual-one">
@@ -148,7 +169,7 @@
               <h3>Barbearia Monteiro</h3>
               <p>Site institucional · Barbearia</p>
             </div>
-            <button class="round-button" aria-label="Abrir detalhes do projeto Barbearia Monteiro">↗</button>
+            <button class="round-button" aria-label="Abrir detalhes do projeto Barbearia Monteiro"><svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg></button>
           </div>
 
           <div class="project-visual project-visual-two">
@@ -205,7 +226,7 @@
               esperado antes de tomar qualquer decisão visual.
               <small>Briefing · posicionamento · referências</small>
             </p>
-            <div class="process-icon">◎</div>
+            <div class="process-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-target"></use></svg></div>
           </article>
           <article class="process-item reveal">
             <span>02</span>
@@ -215,7 +236,7 @@
               clareza até o contato ou a compra.
               <small>Jornada · estrutura · chamadas para ação</small>
             </p>
-            <div class="process-icon">✦</div>
+            <div class="process-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-spark"></use></svg></div>
           </article>
           <article class="process-item reveal">
             <span>03</span>
@@ -225,7 +246,7 @@
               para funcionar bem em qualquer tela.
               <small>Interface · responsividade · performance</small>
             </p>
-            <div class="process-icon">⌘</div>
+            <div class="process-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-code"></use></svg></div>
           </article>
           <article class="process-item reveal">
             <span>04</span>
@@ -235,7 +256,7 @@
               necessária para você seguir com segurança.
               <small>Testes · lançamento · orientação final</small>
             </p>
-            <div class="process-icon">↗</div>
+            <div class="process-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg></div>
           </article>
         </div>
 
@@ -251,7 +272,7 @@
           <div class="process-quote-action">
             <span class="budget-label"><i></i> Orçamentos abertos</span>
             <a href="https://www.instagram.com/steinheuser.web/" target="_blank" rel="noreferrer">
-              <span>Quero solicitar um orçamento</span><span>↗</span>
+              <span>Quero solicitar um orçamento</span><svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg>
             </a>
             <small>Conversa inicial sem compromisso.</small>
           </div>
@@ -280,8 +301,8 @@
               e cada projeto é construído de acordo com o que torna a sua marca única.
             </p>
             <div class="social-links">
-              <a href="https://www.instagram.com/steinheuser.web/" target="_blank" rel="noreferrer">Instagram ↗</a>
-              <a href="https://www.linkedin.com/in/gabriel-steinheuser-aa7962303/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+              <a href="https://www.instagram.com/steinheuser.web/" target="_blank" rel="noreferrer">Instagram <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg></a>
+              <a href="https://www.linkedin.com/in/gabriel-steinheuser-aa7962303/" target="_blank" rel="noreferrer">LinkedIn <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg></a>
             </div>
           </div>
         </div>
@@ -297,7 +318,7 @@
       <div class="footer-meta">
         <span>Desenvolvimento web independente</span>
         <span>© <span id="year"></span> · Todos os direitos reservados</span>
-        <a href="#inicio">Voltar ao topo ↑</a>
+        <a href="#inicio">Voltar ao topo <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up"></use></svg></a>
       </div>
     </footer>
 
@@ -312,7 +333,7 @@
           <div><small>Solução</small><p class="dialog-solution"></p></div>
           <div><small>Entrega</small><p class="dialog-delivery"></p></div>
         </div>
-        <a class="dialog-link" href="#" target="_blank" rel="noreferrer">Visitar projeto <span>↗</span></a>
+        <a class="dialog-link" href="#" target="_blank" rel="noreferrer">Visitar projeto <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-up-right"></use></svg></a>
       </div>
     </dialog>
 

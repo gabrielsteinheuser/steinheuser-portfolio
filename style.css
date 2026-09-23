@@ -56,6 +56,25 @@ button {
   font: inherit;
 }
 
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.ui-icon {
+  display: block;
+  flex: 0 0 auto;
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .noise {
   position: fixed;
   inset: 0;
@@ -263,7 +282,7 @@ button {
   height: clamp(5rem, 9vw, 8.5rem);
 }
 
-.hero-seal svg {
+.hero-seal > svg {
   width: 100%;
   height: 100%;
   animation: spin 16s linear infinite;
@@ -282,6 +301,11 @@ button {
   color: var(--acid);
   font-size: 1.4rem;
   transform: translate(-50%, -50%);
+}
+
+.hero-seal > span .ui-icon {
+  width: 1.15em;
+  height: 1.15em;
 }
 
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -406,8 +430,7 @@ button {
 
 .mock-content small { font: 400 0.55rem var(--mono); text-transform: uppercase; }
 .mock-content strong { display: block; margin-top: 1rem; font-size: clamp(2rem, 5vw, 5.5rem); line-height: 0.88; letter-spacing: -0.08em; }
-.mock-button { width: fit-content; margin-top: 2rem; padding: 0.65rem 1rem; border-radius: 4rem; background: var(--ink); color: var(--paper); font-size: 0.65rem; }
-.mock-button span { margin-left: 1.5rem; }
+.mock-button { display: inline-flex; align-items: center; gap: 1.5rem; width: fit-content; margin-top: 2rem; padding: 0.65rem 1rem; border-radius: 4rem; background: var(--ink); color: var(--paper); font-size: 0.65rem; }
 
 .mock-orb {
   position: absolute;
@@ -493,6 +516,8 @@ button {
   font-size: 1.2rem;
   transition: background 250ms ease, color 250ms ease, transform 350ms ease;
 }
+
+.round-button .ui-icon { width: 1rem; height: 1rem; }
 
 .project-card:hover .round-button { background: var(--ink); color: var(--paper); transform: rotate(45deg); }
 
@@ -734,6 +759,7 @@ button {
 .process-item p { max-width: 35rem; margin: 0; color: rgba(17,17,15,.63); font-size: .88rem; line-height: 1.6; }
 .process-item p small { display: block; margin-top: .55rem; color: var(--blue-deep); font: 500 .54rem var(--mono); letter-spacing: .04em; text-transform: uppercase; }
 .process-icon { display: grid; place-items: center; justify-self: end; width: 3.5rem; height: 3.5rem; border: 1px solid var(--line); border-radius: 50%; font-size: 1.2rem; transition: transform 350ms ease; }
+.process-icon .ui-icon { width: 1.05rem; height: 1.05rem; }
 .process-item:hover .process-icon { transform: rotate(45deg); }
 
 .process-quote {
@@ -777,6 +803,8 @@ button {
 .about-copy > p { max-width: 36rem; margin-bottom: 1.2rem; }
 .about-copy strong { color: var(--ink); }
 .social-links { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; font: 500 .68rem var(--mono); text-transform: uppercase; }
+.social-links a, .footer-meta a { display: inline-flex; align-items: center; gap: .4rem; width: fit-content; }
+.social-links .ui-icon, .footer-meta .ui-icon { width: .9em; height: .9em; }
 
 .site-footer { padding-top: 3rem; padding-bottom: 1.5rem; background: var(--ink); color: var(--paper); }
 .footer-brand { display: flex; align-items: center; gap: 1vw; font-size: clamp(3rem,8.25vw,8rem); font-weight: 700; line-height: .82; letter-spacing: -.075em; white-space: nowrap; }
@@ -803,7 +831,7 @@ button {
 .dialog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; padding-top: 2rem; border-top: 1px solid var(--line); }
 .dialog-grid small { font: 500 .6rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .dialog-grid p { color: rgba(17,17,15,.65); font-size: .86rem; line-height: 1.65; }
-.dialog-link { display: flex; justify-content: space-between; margin-top: 3rem; padding: 1rem 1.2rem; border-radius: 3rem; background: var(--ink); color: var(--paper); font: 500 .68rem var(--mono); text-transform: uppercase; }
+.dialog-link { display: flex; align-items: center; justify-content: space-between; margin-top: 3rem; padding: 1rem 1.2rem; border-radius: 3rem; background: var(--ink); color: var(--paper); font: 500 .68rem var(--mono); text-transform: uppercase; }
 
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity 800ms ease, transform 800ms cubic-bezier(.2,.75,.2,1); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
