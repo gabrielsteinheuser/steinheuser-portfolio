@@ -974,3 +974,18 @@ button {
   .hero-title .line > span { transform: translateY(0); }
   .reveal { opacity: 1; transform: none; }
 }
+/* Apresentação do projeto em equipe, sem simular uma captura do produto. */
+.project-visual.arena-summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  min-height: 22rem;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  background: #123f49;
+  color: #fffdf8;
+}
+.arena-summary h4 { margin: 0; font-size: clamp(2.5rem, 7vw, 6rem); line-height: 1.1; letter-spacing: -.05em; }
+.arena-summary p { max-width: 40rem; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.7; }
+.arena-summary small { font-family: var(--mono); line-height: 1.8; }
+.project-arena:focus-visible .project-meta { outline: 3px solid var(--blue); outline-offset: 4px; }

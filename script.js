@@ -1,4 +1,14 @@
 const projects = {
+  "arena-viva-equipe": {
+    kicker: "Projeto 03 / Desenvolvimento em equipe",
+    title: "Arena Viva",
+    intro: "Projeto de reservas para arenas esportivas desenvolvido em colaboração com gDorigon.",
+    challenge: "Organizar o agendamento de quadras e facilitar a gestão de reservas esportivas.",
+    solution: "Desenvolvimento colaborativo de uma solução voltada à rotina de arenas.",
+    delivery: "Projeto de Gabriel Steinheuser e gDorigon. O repositório da equipe é privado e requer autorização para acessar o código. A demonstração pública está em github.com/gabrielsteinheuser/arena-viva e corresponde a uma versão separada.",
+    url: "https://github.com/gDorigon/projeto-arena",
+    linkLabel: "Repositório (acesso restrito)",
+  },
   "doce-confeito": {
     kicker: "Projeto 01 / Confeitaria artesanal",
     title: "D Confeito",
@@ -42,6 +52,7 @@ function openProject(projectKey) {
   dialog.querySelector(".dialog-solution").textContent = project.solution;
   dialog.querySelector(".dialog-delivery").textContent = project.delivery;
   dialogLink.href = project.url;
+  dialogLink.firstChild.textContent = `${project.linkLabel || "Visitar projeto"} `;
   dialogLink.style.display = project.url === "#" ? "none" : "flex";
 
   dialog.showModal();

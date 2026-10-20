@@ -6,6 +6,12 @@ Portfólio pessoal criado para apresentar projetos, habilidades e serviços de d
 
 A página reúne uma apresentação profissional, projetos selecionados, informações sobre serviços e formas de contato. O objetivo é demonstrar conhecimentos de front-end e criar uma presença digital para oportunidades profissionais e trabalhos independentes.
 
+## Projetos apresentados
+
+- D Confeito — site institucional para confeitaria.
+- Barbearia Monteiro — site institucional para barbearia.
+- Arena Viva — projeto de reservas esportivas em colaboração com [gDorigon](https://github.com/gDorigon), com repositório privado. A [demonstração pública](https://github.com/gabrielsteinheuser/arena-viva) é uma versão separada.
+
 ## Tecnologias utilizadas
 
 - HTML5
