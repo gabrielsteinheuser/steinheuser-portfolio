@@ -894,7 +894,7 @@ button {
   .hero-title { font-size: clamp(3.15rem,15vw,6.7rem); line-height: .86; }
   .hero-seal { right: 0; bottom: -4.5rem; }
   .hero-bottom { flex-direction: column; gap: 2rem; margin-top: 6rem; }
-  .primary-cta { width: 100%; }
+  .primary-cta { align-self: stretch; width: auto; min-width: 0; max-width: 100%; }
   .hero-stage { min-height: 430px; margin-top: 3.5rem; }
   .stage-card-back { left: -5%; width: 58%; height: 42%; }
   .stage-card-main { top: 15%; left: 17%; width: 78%; height: 68%; }

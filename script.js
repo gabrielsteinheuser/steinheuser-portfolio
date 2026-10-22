@@ -61,12 +61,6 @@ function openProject(projectKey) {
 
 document.querySelectorAll(".project-card").forEach((card) => {
   card.addEventListener("click", () => openProject(card.dataset.project));
-  card.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      openProject(card.dataset.project);
-    }
-  });
 });
 
 dialogClose.addEventListener("click", () => dialog.close());
