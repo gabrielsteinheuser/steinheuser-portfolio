@@ -8,9 +8,10 @@ const projects = {
     delivery: "Fluxo de reservas, organização das informações e desenvolvimento colaborativo da experiência.",
     technologies: "HTML, CSS, JavaScript e Git",
     timeline: "Projeto em evolução",
-    result: "Uma base pública e navegável para apresentar a proposta do produto e sua evolução.",
+    result: "A proposta busca simplificar o agendamento de quadras e reduzir a organização manual das reservas.",
     url: "https://github.com/gabrielsteinheuser/arena-viva",
-    linkLabel: "Ver versão pública",
+    linkLabel: "Ver prévia técnica",
+    images: null,
   },
   "doce-confeito": {
     kicker: "Projeto 01 / Confeitaria artesanal",
@@ -24,9 +25,15 @@ const projects = {
     delivery:
       "Estrutura de página, direção visual, experiência responsiva e desenvolvimento front-end.",
     technologies: "HTML, CSS e JavaScript",
-    timeline: "Projeto publicado em 2026",
-    result: "Uma vitrine digital clara e acolhedora, preparada para apresentar produtos e facilitar novos contatos.",
+    timeline: "Projeto publicado e responsivo",
+    result: "Organiza a apresentação dos produtos e cria um caminho direto da descoberta para novos pedidos.",
     url: "https://doce-confeito-site.pages.dev/",
+    images: {
+      desktop: "assets/projects/doce-confeito-desktop.jpg",
+      mobile: "assets/projects/doce-confeito-mobile.jpg",
+      desktopAlt: "Página inicial do site D Confeito em um computador",
+      mobileAlt: "Página inicial do site D Confeito em um celular",
+    },
   },
   "barbearia-monteiro": {
     kicker: "Projeto 02 / Barbearia",
@@ -40,15 +47,25 @@ const projects = {
     delivery:
       "Conceito visual, UI/UX, adaptação mobile e desenvolvimento da interface.",
     technologies: "HTML, CSS e JavaScript",
-    timeline: "Projeto publicado em 2026",
-    result: "Uma presença digital direta e responsiva, com o agendamento como próximo passo evidente.",
+    timeline: "Projeto publicado e responsivo",
+    result: "Aproxima descoberta e agendamento, tornando o próximo passo evidente para quem procura o serviço.",
     url: "https://barbearia-monteiro-preview.regular-glider.workers.dev/",
+    images: {
+      desktop: "assets/projects/barbearia-monteiro-desktop.jpg",
+      mobile: "assets/projects/barbearia-monteiro-mobile.jpg",
+      desktopAlt: "Página inicial da Barbearia Monteiro em um computador",
+      mobileAlt: "Página inicial da Barbearia Monteiro em um celular",
+    },
   },
 };
 
 const dialog = document.querySelector("#project-dialog");
 const dialogClose = dialog.querySelector(".dialog-close");
 const dialogLink = dialog.querySelector(".dialog-link");
+const dialogQuote = dialog.querySelector(".dialog-quote");
+const dialogGallery = dialog.querySelector(".dialog-gallery");
+const dialogDesktopImage = dialog.querySelector(".dialog-shot-desktop img");
+const dialogMobileImage = dialog.querySelector(".dialog-shot-mobile img");
 
 function openProject(projectKey) {
   const project = projects[projectKey];
@@ -66,6 +83,25 @@ function openProject(projectKey) {
   dialogLink.href = project.url;
   dialogLink.firstChild.textContent = `${project.linkLabel || "Visitar projeto"} `;
   dialogLink.style.display = project.url === "#" ? "none" : "flex";
+  dialogLink.dataset.project = projectKey;
+
+  const quoteText = `Olá, Gabriel! Vi o projeto ${project.title} no seu portfólio e gostaria de solicitar um orçamento para algo parecido.`;
+  dialogQuote.href = `https://wa.me/5543996036236?text=${encodeURIComponent(quoteText)}`;
+  dialogQuote.dataset.project = projectKey;
+
+  if (project.images) {
+    dialogGallery.hidden = false;
+    dialogDesktopImage.src = project.images.desktop;
+    dialogDesktopImage.alt = project.images.desktopAlt;
+    dialogMobileImage.src = project.images.mobile;
+    dialogMobileImage.alt = project.images.mobileAlt;
+  } else {
+    dialogGallery.hidden = true;
+    dialogDesktopImage.removeAttribute("src");
+    dialogDesktopImage.alt = "";
+    dialogMobileImage.removeAttribute("src");
+    dialogMobileImage.alt = "";
+  }
 
   dialog.showModal();
   document.body.classList.add("dialog-open");
@@ -103,7 +139,11 @@ document.querySelectorAll(".project-card").forEach((card) => {
 
 document.addEventListener("click", (event) => {
   const trackedElement = event.target.closest("[data-track]");
-  if (trackedElement) trackEvent(trackedElement.dataset.track);
+  if (trackedElement) {
+    trackEvent(trackedElement.dataset.track, {
+      project: trackedElement.dataset.project || "",
+    });
+  }
 });
 
 dialogClose.addEventListener("click", () => dialog.close());
