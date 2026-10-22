@@ -49,18 +49,39 @@ Depois, acesse `http://localhost:8000`.
 
 ```text
 steinheuser-portfolio/
+├── .github/      # Deploy automático no Cloudflare Pages
 ├── assets/       # Imagens e recursos dos projetos
+├── functions/    # Métricas serverless no Cloudflare
+├── scripts/      # Build estático
 ├── index.html    # Estrutura da página
 ├── style.css     # Estilos e responsividade
-└── script.js     # Interações e estudos de caso
+└── script.js     # Interações, estudos de caso e eventos
 ```
 
-## Próximas melhorias
+## Build e validação
 
-- publicar uma versão online;
-- adicionar novos projetos;
-- aprimorar acessibilidade e desempenho;
-- incluir formulário de contato integrado.
+```bash
+npm run check
+npm run build
+```
+
+O build copia os arquivos públicos para `dist/`, diretório publicado no Cloudflare Pages.
+
+## Deploy automático
+
+O workflow `.github/workflows/pages-deployment.yml` publica a branch `main` no projeto
+`steinheuser-portfolio`. O repositório precisa ter estes secrets configurados:
+
+- `CLOUDFLARE_ACCOUNT_ID`;
+- `CLOUDFLARE_API_TOKEN`, limitado à permissão Cloudflare Pages Edit.
+
+## Métricas
+
+O endpoint `/api/events` registra eventos de navegação e conversão, sem cookies ou dados
+pessoais, no dataset `steinheuser_portfolio_events` do Cloudflare Analytics Engine.
+
+São registrados: visualização da página, abertura e visita de projetos e cliques no WhatsApp,
+Instagram e LinkedIn.
 
 ## Autor
 

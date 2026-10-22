@@ -1,0 +1,8 @@
+{
+  "name": "steinheuser-portfolio",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node --check script.js && node --check functions/api/events.js"
+  }
+}

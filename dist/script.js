@@ -5,9 +5,12 @@ const projects = {
     intro: "Projeto de reservas para arenas esportivas desenvolvido em colaboração com gDorigon.",
     challenge: "Organizar o agendamento de quadras e facilitar a gestão de reservas esportivas.",
     solution: "Desenvolvimento colaborativo de uma solução voltada à rotina de arenas.",
-    delivery: "Projeto de Gabriel Steinheuser e gDorigon. O repositório da equipe é privado e requer autorização para acessar o código. A demonstração pública está em github.com/gabrielsteinheuser/arena-viva e corresponde a uma versão separada.",
-    url: "https://github.com/gDorigon/projeto-arena",
-    linkLabel: "Repositório (acesso restrito)",
+    delivery: "Fluxo de reservas, organização das informações e desenvolvimento colaborativo da experiência.",
+    technologies: "HTML, CSS, JavaScript e Git",
+    timeline: "Projeto em evolução",
+    result: "Uma base pública e navegável para apresentar a proposta do produto e sua evolução.",
+    url: "https://github.com/gabrielsteinheuser/arena-viva",
+    linkLabel: "Ver versão pública",
   },
   "doce-confeito": {
     kicker: "Projeto 01 / Confeitaria artesanal",
@@ -20,6 +23,9 @@ const projects = {
       "Uma composição calorosa, tipografia expressiva e fotografia em destaque criam uma experiência afetiva, elegante e responsiva.",
     delivery:
       "Estrutura de página, direção visual, experiência responsiva e desenvolvimento front-end.",
+    technologies: "HTML, CSS e JavaScript",
+    timeline: "Projeto publicado em 2026",
+    result: "Uma vitrine digital clara e acolhedora, preparada para apresentar produtos e facilitar novos contatos.",
     url: "https://doce-confeito-site.pages.dev/",
   },
   "barbearia-monteiro": {
@@ -33,6 +39,9 @@ const projects = {
       "Fotografia imersiva, alto contraste e chamadas objetivas criam uma experiência masculina, sofisticada e orientada à conversão.",
     delivery:
       "Conceito visual, UI/UX, adaptação mobile e desenvolvimento da interface.",
+    technologies: "HTML, CSS e JavaScript",
+    timeline: "Projeto publicado em 2026",
+    result: "Uma presença digital direta e responsiva, com o agendamento como próximo passo evidente.",
     url: "https://barbearia-monteiro-preview.regular-glider.workers.dev/",
   },
 };
@@ -51,16 +60,45 @@ function openProject(projectKey) {
   dialog.querySelector(".dialog-challenge").textContent = project.challenge;
   dialog.querySelector(".dialog-solution").textContent = project.solution;
   dialog.querySelector(".dialog-delivery").textContent = project.delivery;
+  dialog.querySelector(".dialog-technologies").textContent = project.technologies;
+  dialog.querySelector(".dialog-timeline").textContent = project.timeline;
+  dialog.querySelector(".dialog-result").textContent = project.result;
   dialogLink.href = project.url;
   dialogLink.firstChild.textContent = `${project.linkLabel || "Visitar projeto"} `;
   dialogLink.style.display = project.url === "#" ? "none" : "flex";
 
   dialog.showModal();
   document.body.classList.add("dialog-open");
+  trackEvent("project_open", { project: projectKey });
+}
+
+function trackEvent(eventName, details = {}) {
+  const payload = JSON.stringify({
+    event: eventName,
+    path: window.location.pathname,
+    project: details.project || "",
+  });
+
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon("/api/events", new Blob([payload], { type: "application/json" }));
+    return;
+  }
+
+  fetch("/api/events", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: payload,
+    keepalive: true,
+  }).catch(() => {});
 }
 
 document.querySelectorAll(".project-card").forEach((card) => {
   card.addEventListener("click", () => openProject(card.dataset.project));
+});
+
+document.addEventListener("click", (event) => {
+  const trackedElement = event.target.closest("[data-track]");
+  if (trackedElement) trackEvent(trackedElement.dataset.track);
 });
 
 dialogClose.addEventListener("click", () => dialog.close());
@@ -123,6 +161,7 @@ document.querySelectorAll(".magnetic").forEach((button) => {
 });
 
 document.querySelector("#year").textContent = new Date().getFullYear();
+trackEvent("page_view");
 
 // Mantém links diretos para seções precisos mesmo com a rolagem suave do site.
 window.addEventListener("load", () => {
