@@ -27,14 +27,14 @@ jobs:
       - name: Validate JavaScript
         run: npm run check
 
-      - name: Explain missing Cloudflare credential
+      - name: Require Cloudflare credential
         if: ${{ env.CLOUDFLARE_API_TOKEN == '' }}
         run: |
-          echo "CLOUDFLARE_API_TOKEN is not configured in this repository."
-          echo "Add it under Settings > Secrets and variables > Actions to enable automatic deployments."
+          echo "CLOUDFLARE_API_TOKEN is not configured in this repository." >&2
+          echo "Add it under Settings > Secrets and variables > Actions to enable automatic deployments." >&2
+          exit 1
 
       - name: Deploy to Cloudflare Pages
-        if: ${{ env.CLOUDFLARE_API_TOKEN != '' }}
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

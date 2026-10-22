@@ -2,11 +2,5 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "steinheuser-portfolio",
   "pages_build_output_dir": "./dist",
-  "compatibility_date": "2026-10-22",
-  "analytics_engine_datasets": [
-    {
-      "binding": "ANALYTICS",
-      "dataset": "steinheuser_portfolio_events"
-    }
-  ]
+  "compatibility_date": "2026-10-22"
 }

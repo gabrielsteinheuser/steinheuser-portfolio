@@ -103,12 +103,13 @@ O workflow `.github/workflows/pages-deployment.yml` publica a branch `main` no p
 
 ## Métricas
 
-O endpoint `/api/events` registra eventos de navegação e conversão, sem cookies ou dados
-pessoais, no dataset `steinheuser_portfolio_events` do Cloudflare Analytics Engine.
+O endpoint `/api/events` recebe e valida eventos de navegação e conversão sem cookies ou dados
+pessoais. São aceitos: visualização da página, abertura e visita de projetos, solicitação de projeto
+semelhante, cliques nos CTAs de WhatsApp por origem, Instagram e LinkedIn.
 
-São registrados: visualização da página, abertura e visita de projetos, solicitação de projeto
-semelhante, cliques nos CTAs de WhatsApp por origem, Instagram e LinkedIn. Os eventos aceitos
-são validados no endpoint antes do registro e não armazenam cookies nem dados pessoais.
+Quando o binding opcional `ANALYTICS` estiver configurado em uma conta com Cloudflare Analytics
+Engine habilitado, os eventos são gravados no dataset informado. Sem o binding, o endpoint mantém
+o contrato HTTP e não persiste os eventos, evitando que a ausência do serviço impeça o deploy do site.
 
 ## Conversão e contato
 
