@@ -94,6 +94,11 @@ function trackEvent(eventName, details = {}) {
 
 document.querySelectorAll(".project-card").forEach((card) => {
   card.addEventListener("click", () => openProject(card.dataset.project));
+  card.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    openProject(card.dataset.project);
+  });
 });
 
 document.addEventListener("click", (event) => {
